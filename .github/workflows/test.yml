@@ -9,7 +9,7 @@ jobs:
           echo It runs directly on the virtual machine.
         name: Run on VM
   container:
-    runs-on: ubuntu-latest
+    runs: docker
     container: psl1ght/psl1ght:latest
     steps:
       - run: |
