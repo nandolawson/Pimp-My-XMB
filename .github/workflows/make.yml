@@ -1,5 +1,6 @@
 name: 'Compile'
 description: 'Greet someone and record the time'
+on: deployment
 runs:
   using: 'docker'
   image: 'Dockerfile'
