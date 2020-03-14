@@ -1,17 +1,17 @@
-name: CI
-
-on: [push]
-
 jobs:
-  myjob:
-    runs-on: ubuntu-18.04 # linux required if you want to use docker
+  vm:
+    runs-on: ubuntu-latest
     steps:
-    # Those steps are executed directly on the VM
-    - run: ls /
-    - run: echo $HOME
-    - name: Add a file
-      run: touch $HOME/stuff.txt
-    # Those steps are actions, which may run inside a container
-    - uses: actions/checkout@v1
-    - uses: ./.github/actions/my-action
-    - uses: docker://continuumio/anaconda3:2019.07
+      - run: |
+          echo This job does not specify a container.
+          echo It runs directly on the virtual machine.
+        name: Run on VM
+  container:
+    runs-on: ubuntu-latest
+    container: psl1ght/psl1ght:latest
+    steps:
+      - run: |
+          echo This job does specify a container.
+          echo It runs in the container instead of the VM.
+          sh make.sh
+        name: Run in container
