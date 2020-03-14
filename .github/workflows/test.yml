@@ -16,5 +16,5 @@ jobs:
           echo This job does specify a container.
           echo It runs in the container instead of the VM.
           git clone https://github.com/nandolawson/Pimp-My-XMB
-          sh make.sh
+          cd Pimp-My-XMB && sh make.sh
         name: Run in container
