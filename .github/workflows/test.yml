@@ -9,11 +9,12 @@ jobs:
           echo It runs directly on the virtual machine.
         name: Run on VM
   container:
-    runs: docker
+    runs-on: ubuntu-latest
     container: psl1ght/psl1ght:latest
     steps:
       - run: |
           echo This job does specify a container.
           echo It runs in the container instead of the VM.
+          git clone https://github.com/nandolawson/Pimp-My-XMB
           sh make.sh
         name: Run in container
