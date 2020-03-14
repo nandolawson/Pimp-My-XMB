@@ -1,21 +1,13 @@
 name: CI
 on: [push]
 jobs:
-  vm:
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          echo This job does not specify a container.
-          echo It runs directly on the virtual machine.
-          ls
-        name: Run on VM
-  container:
+  make:
     runs-on: ubuntu-latest
     container: psl1ght/psl1ght:latest
     steps:
       - run: |
-          echo This job does specify a container.
-          echo It runs in the container instead of the VM.
           git clone https://github.com/nandolawson/Pimp-My-XMB
+        name: Get repo
+      - run: |
           cd Pimp-My-XMB && sh make.sh
-        name: Run in container
+        name: Script
