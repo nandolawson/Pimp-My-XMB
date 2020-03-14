@@ -1,5 +1,5 @@
 name: CI
-on: [push]
+on: push
 jobs:
   make:
     runs-on: ubuntu-latest
@@ -10,4 +10,4 @@ jobs:
         name: Get repo
       - run: |
           cd Pimp-My-XMB && sh make.sh
-        name: Script
+        name: Generate aso
