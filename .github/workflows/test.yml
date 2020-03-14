@@ -7,7 +7,13 @@ jobs:
     steps:
       - run: |
           git clone https://github.com/nandolawson/Pimp-My-XMB
-        name: Get repo
+          export PS3DEV=/usr/local/ps3dev
+          export PSL1GHT=$PS3DEV
+          export PATH=$PATH:$PS3DEV/bin
+          export PATH=$PATH:$PS3DEV/ppu/bin
+          export PATH=$PATH:$PS3DEV/spu/bin
+        name: Prepare
       - run: |
-          cd Pimp-My-XMB && sh make.sh
+          cd Pimp-My-XMB
+          sh make.sh
         name: Generate aso
